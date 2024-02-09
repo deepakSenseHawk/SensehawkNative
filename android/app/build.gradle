@@ -76,11 +76,13 @@ android {
 
     namespace "com.sensehawknative"
     defaultConfig {
-        applicationId "com.sensehawknative"
+        applicationId "com.sensehawk.sensehawknative"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+        manifestPlaceholders = [pdftronLicenseKey:PDFTRON_LICENSE_KEY]
     }
     signingConfigs {
         debug {
@@ -108,6 +110,7 @@ dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
     implementation("com.facebook.react:flipper-integration")
+    implementation("androidx.multidex:multidex:2.0.1")
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
